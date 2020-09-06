@@ -11,4 +11,4 @@ app.listen(3333, () => {
   console.log('server start at port 3333!!');
 });
 
-export { app };
+export default app;

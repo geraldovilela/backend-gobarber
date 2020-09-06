@@ -2,7 +2,6 @@ import { startOfHour } from 'date-fns';
 
 import Appointment from '../models/Appointment';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
-import appointmentsRouter from '../routes/appointments.routes';
 
 interface RequestDTO {
   provider: string;
@@ -26,10 +25,10 @@ class CreateAppointmentService {
       throw Error('this scheduled time is already taken');
     }
 
-    const appointment = this.appointmentsRepository.create(
+    const appointment = this.appointmentsRepository.create({
       provider,
-      appointmentDate,
-    );
+      date: appointmentDate,
+    });
     return appointment;
   }
 }
